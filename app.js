@@ -8,7 +8,7 @@ const serverHandle = (req, res) => {
 
     req.path = url.split('?')[0];
     req.query = querystring.parse(url.split('?')[1])
-
+    console.log('req.query', req.query);
     const blogData = handleBlogRouter(req, res);
     if (blogData) {
         res.end(

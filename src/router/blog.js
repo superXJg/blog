@@ -1,4 +1,4 @@
-const { getList } = require('../controller/blog')
+const { getList, getDetail } = require('../controller/blog')
 const { SuccessModel, ErrorModel } = require('../model/resModel')
 
 const handleBlogRouter = (req, res) => {
@@ -14,13 +14,14 @@ const handleBlogRouter = (req, res) => {
     }
 
     if (method === 'GET' && req.path === '/api/blog/detail') {
-        return {
-            msg: 'detail'
-        }
+        const id = req.query.id || '';
+        const detailData = getDetail(id);
+        return new SuccessModel(detailData);
     }
     if (method === 'POST' && req.path === '/api/blog/new') {
         return {
             msg: 'new'
+
         }
     }
     if (method === 'POST' && req.path === '/api/blog/update') {
