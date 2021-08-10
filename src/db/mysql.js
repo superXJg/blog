@@ -21,16 +21,6 @@ function exec(sql) {
     })
     return promise
 }
-// sql
-// const sql = `update users set realname='张三2' where username='zhangsan'`
-// con.query(sql, (err, result) => {
-//     if (err) {
-//         console.error(err)
-//         return
-//     }
-//     console.log(result);
-// })
-// con.end()
 
 module.exports = {
     exec
